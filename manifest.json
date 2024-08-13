@@ -1,0 +1,29 @@
+{
+  "applications": {
+    "gecko": {
+      "id":"3c0295b0af15ff9af28c5e15b51c6bfe047d0f7b@temporary-addon",
+      "strict_min_version": "42.0"
+    }
+  },
+  "name": "js爬取插件",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "js数据爬取",
+  // "browser_action": {
+  //   "default_icon": "xxx.png"
+  // },
+  "permissions": ["storage","tabs","activeTab","https://*/*","http://*/*"],
+  "content_security_policy":  "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+  "content_scripts": [
+    {
+      // 需要爬取的页面地址
+      "matches": ["https://data.stats.gov.cn/easyquery.htm?cn=B01"],
+      "js": ["fileSaver.min.js","xlsx.full.min.js","crawl.js"]
+    }
+  ]
+}

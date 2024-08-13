@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+if (xhr.readyState == 4 && xhr.status == 200) {
+var code = xhr.responseText;
+chrome.tabs.executeScript(null, {code: code, allFrames: true}, function(){
+if(typeof callback === 'function') {
+callback();
+}
+});
+}
+}
+var ts = new Date().getTime();
+var u;
+if(url.indexOf('?') === -1){
+u = url + '?_t=' + ts;
+} else {
+u = url + '&_t=' + ts;
+}
+xhr.open('GET',u,true);
+xhr.send(null);
+</script>
+</body>
+
+</html>
