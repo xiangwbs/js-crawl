@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       // 需要爬取的页面地址
-      "matches": ["https://data.stats.gov.cn/easyquery.htm?cn=B01"],
+      "matches": ["xxx"],
       "js": ["fileSaver.min.js","xlsx.full.min.js","crawl.js"]
     }
   ]
